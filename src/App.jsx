@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import InstructionPage from "./components/InstructionPage/InstructionPage";
 import Pokemon from "./components/PokemonPage/Pokemon";
 import LikedPokemon from "./components/LikedPokemon/LikedPokemon";
+import './App.css'
 
 export default function App() {
   return (

@@ -1,0 +1,19 @@
+li {
+  list-style-type: none;
+  text-align: left;
+}
+
+.background {
+  /* margin-top: 260px; */
+}
+
+.poke-card {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;   */
+  height: auto;
+  width: 60%;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 13px;
+}
