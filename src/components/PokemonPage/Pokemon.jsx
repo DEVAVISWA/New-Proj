@@ -36,16 +36,23 @@ export default function Pokemon() {
     navigate("/pokemon_liked");
   };
 
-  const dislikePokemon =() =>{
+  const nextPokemon = () =>{
     setLikedPokemon(likedPokemon +1)
   }
 
+  const dislikePokemon =() =>{
+    nextPokemon()
+  }
+
+  useEffect(()=>{
+    // likePokemon()
+
+  })
   const likePokemon =() =>{
-    setLikedPokemon(likedPokemon)
-    let likedPokemonList = []
-    likedPokemonList.push(likedPokemon)
-    window.localStorage.setItem('pokemon-id',JSON.stringify(likedPokemonList))
-    dislikePokemon()
+    // setLikedPokemon(likedPokemon)        
+    
+    window.localStorage.setItem(`pokemon-${likedPokemon}`,JSON.stringify(pokemonData))
+    nextPokemon()
   }
 
   return (

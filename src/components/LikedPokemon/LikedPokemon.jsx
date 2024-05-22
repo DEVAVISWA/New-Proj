@@ -2,26 +2,28 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function LikedPokemon() {
-  const [likedPokemonID, setLikedPokemonID] = useState(0);
-  const [likedPokemonData, setLikedPokemonData] = useState(null);
-  useEffect(() => {
-    const likedPokemonID = window.localStorage.getItem("pokemon-id");
-    if (likedPokemonID) {
-      setLikedPokemonID(likedPokemonID);
-    }
-  }, []);
+  
+  const [likedPokemon, setLikedPokemon] = useState(null);
 
-  useEffect(() => {
-    const fetchLikedPokemon = async () => {
-      try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/1`);
-        setLikedPokemonData(response.data);
-      } catch (error) {
-        console.error("err fetching ID", error);
-      }
-    };
-    fetchLikedPokemon();
-  }, []);
+  // useEffect((id) => {
+    const likedPokemonJSON= JSON.parse(window.localStorage.getItem(`pokemon-`));
+    console.log(likedPokemonJSON)
+    if (likedPokemon) {
+      setLikedPokemon(likedPokemon);
+    }
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchLikedPokemon = async () => {
+  //     try {
+  //       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/1`);
+  //       setLikedPokemonData(response.data);
+  //     } catch (error) {
+  //       console.error("err fetching ID", error);
+  //     }
+  //   };
+  //   fetchLikedPokemon();
+  // }, []);
 
   return (
     <div className="background">
@@ -37,13 +39,13 @@ export default function LikedPokemon() {
         <div className="">
           name
         </div> */}
-        {likedPokemonData && (
+        {likedPokemon && (
           <>
             <img
-              src={likedPokemonData.sprites.other.dream_world.front_default}
+              src={likedPokemon.sprites.other.dream_world.front_default}
               alt=""
             />
-            <h4>{likedPokemonData.name.toUpperCase()}</h4>
+            <h4>{likedPokemon.name.toUpperCase()}</h4>
           </>
         )}
       </div>
