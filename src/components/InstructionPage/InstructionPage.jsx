@@ -2,8 +2,13 @@ import React from "react";
 import "./InstructionPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons/faGratipay";
+import { useNavigate } from "react-router-dom";
 
 export default function InstructionPage() {
+  const navigate = useNavigate();
+  let buttonHandler = () => {
+    navigate("/pokemon");
+  };
   return (
     <div className="background">
       <img
@@ -34,7 +39,12 @@ export default function InstructionPage() {
             </div>
           </div>
           <div className="row padding">
-            <button className="text-center btn btn-success ">Let's Go!</button>
+            <button
+              className="text-center btn btn-success "
+              onClick={buttonHandler}
+            >
+              Let's Go!
+            </button>
           </div>
         </div>
       </div>

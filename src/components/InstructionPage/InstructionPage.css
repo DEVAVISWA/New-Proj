@@ -10,17 +10,20 @@ li {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #ffffff;  
+  margin: 20px;
+
 }
 
 .poke-card {
-  background-color: #ffffff;
+  background-color: var(--light-bg);
   padding: 13px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  height: 400px;
+  /* max-width: 300px; */
+  /* height: 400px; */
   border: 1px solid black;
+  width: fit-content;
 }
 
 .api-png {

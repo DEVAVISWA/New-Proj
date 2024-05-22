@@ -1,3 +1,16 @@
 body {
-    font-family: cursive;
+  font-family: cursive;
+}
+
+:root {
+  --light-bg: #e9ecef;
+  --dark-bg: #202225;
+  --light-type-pill: rgb(255, 212, 59);
+  --dark-type-pill: rgb(94, 57, 0);
+  --light-ability-pill: rgb(59, 201, 219);
+  --dark-ability-pill: rgb(0, 114, 130);
+  --light-dislike-button : rgb(255, 135, 135);
+  --dark-dislike-button : rgb(181, 77, 77);
+  --light-like-button :  rgb(105, 219, 124);
+  --dark-like-button : 4, 102, 20;
 }
