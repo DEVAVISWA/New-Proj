@@ -6,13 +6,12 @@ export default function LikedPokemon() {
   const [likedPokemon, setLikedPokemon] = useState(null);
 
   // useEffect((id) => {
-    const likedPokemonJSON= JSON.parse(window.localStorage.getItem(`pokemon-`));
+    const likedPokemonJSON= JSON.parse(window.localStorage.getItem(`liked-pokemon`));
     console.log(likedPokemonJSON)
     if (likedPokemon) {
       setLikedPokemon(likedPokemon);
     }
   // }, []);
-
   // useEffect(() => {
   //   const fetchLikedPokemon = async () => {
   //     try {
@@ -32,13 +31,7 @@ export default function LikedPokemon() {
         alt="Poke API img"
         className="api-png"
       />
-      <div className="poke-card">
-        {/* <div className="">
-          img
-        </div>
-        <div className="">
-          name
-        </div> */}
+      <div className="poke-card">        
         {likedPokemon && (
           <>
             <img

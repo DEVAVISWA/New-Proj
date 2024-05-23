@@ -9,20 +9,21 @@ import { useNavigate } from "react-router-dom";
 export default function Pokemon() {
   const navigate = useNavigate();
   const [pokemonData, setPokemonData] = useState(null);
+
   const [likedPokemon, setLikedPokemon] = useState(1);
 
+  const fetchPokemonData = async () => {
+    try {
+      let randomId = Math.floor(Math.random() * 1025) + 1;
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${randomId}`
+      );
+      setPokemonData(response.data);
+    } catch (error) {
+      console.error("Err fetching Pokemon", error);
+    }
+  };
   useEffect(() => {
-    const fetchPokemonData = async () => {
-      try {
-        const response = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${likedPokemon}`
-        );
-        // console.log(response.data);
-        setPokemonData(response.data);
-      } catch (error) {
-        console.error("Err fetching Pokemon", error);
-      }
-    };
     fetchPokemonData();
   }, [likedPokemon]);
 
@@ -32,28 +33,23 @@ export default function Pokemon() {
   };
 
   const likePokemonList = () => {
-    console.log("liked pokemon list");
-    navigate("/pokemon_liked");
+    alert("sorry i didn't get enough time to do this feature completely");
+    // navigate("/pokemon_liked");
   };
 
-  const nextPokemon = () =>{
-    setLikedPokemon(likedPokemon +1)
-  }
+  const nextPokemon = () => {
+    fetchPokemonData();
+  };
 
-  const dislikePokemon =() =>{
-    nextPokemon()
-  }
+  const dislikePokemon = () => {
+    fetchPokemonData();
+  };
 
-  useEffect(()=>{
-    // likePokemon()
-
-  })
-  const likePokemon =() =>{
-    // setLikedPokemon(likedPokemon)        
-    
-    window.localStorage.setItem(`pokemon-${likedPokemon}`,JSON.stringify(pokemonData))
-    nextPokemon()
-  }
+  const likePokemon = () => {
+    setLikedPokemon(likedPokemon)
+    window.localStorage.setItem('liked-pokemon', JSON.stringify(pokemonData));
+    nextPokemon();
+  };
 
   return (
     <div className="background">
@@ -103,22 +99,18 @@ export default function Pokemon() {
                   <li className=" ability-pills" key={index}>
                     {ability.ability.name}
                   </li>
-                ))}
-                {/* <li className="col type-pills">fire</li>
-                <li className="col type-pills">Flying</li>
-                <li className="col ability-pills">blaze</li>
-                <li className="col ability-pills">Solar</li> */}
+                ))}                
               </div>
               <div className="row">
                 <div className="col">
-                  <button 
-                  className="dislike-button"
-                  onClick={dislikePokemon}>Dislike</button>
+                  <button className="dislike-button" onClick={dislikePokemon}>
+                    Dislike
+                  </button>
                 </div>
                 <div className="col">
-                  <button 
-                  className="like-button"
-                  onClick={likePokemon}>Like</button>
+                  <button className="like-button" onClick={likePokemon}>
+                    Like
+                  </button>
                 </div>
               </div>
             </>
