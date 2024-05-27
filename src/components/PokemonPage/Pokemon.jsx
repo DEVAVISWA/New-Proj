@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Pokemon() {
   const navigate = useNavigate();
-  const [pokemonData, setPokemonData] = useState(null);
+  const [pokemonData, setPokemonData] = useState("");
+  // console.log(pokemonData)
 
-  const [likedPokemon, setLikedPokemon] = useState(1);
-
+  const [likedPokemon, setLikedPokemon] = useState([]);
+  
   const fetchPokemonData = async () => {
     try {
       let randomId = Math.floor(Math.random() * 1025) + 1;
@@ -25,32 +26,36 @@ export default function Pokemon() {
   };
   useEffect(() => {
     fetchPokemonData();
-  }, [likedPokemon]);
-
+    const data= JSON.parse(localStorage.getItem('liked-pokemon')) || []
+    setLikedPokemon (data)
+  }, []);
+  
   const navigateBack = () => {
     console.log("button pressed");
     navigate("/");
   };
-
+  
   const likePokemonList = () => {
-    alert("sorry i didn't get enough time to do this feature completely");
-    // navigate("/pokemon_liked");
+    navigate("/pokemon_liked");
   };
-
+  
   const nextPokemon = () => {
     fetchPokemonData();
   };
-
+  
   const dislikePokemon = () => {
-    fetchPokemonData();
+    // fetchPokemonData();
+    nextPokemon()
   };
-
+  
   const likePokemon = () => {
-    setLikedPokemon(likedPokemon)
-    window.localStorage.setItem('liked-pokemon', JSON.stringify(pokemonData));
+   const likedPokemonArr= [...likedPokemon,pokemonData]
+   setLikedPokemon(likedPokemonArr)
+    console.log(pokemonData)
+    localStorage.setItem('liked-pokemon', JSON.stringify(likedPokemonArr));    
     nextPokemon();
   };
-
+  
   return (
     <div className="background">
       <img
@@ -83,19 +88,19 @@ export default function Pokemon() {
             <>
               <div className="">
                 <img
-                  src={pokemonData.sprites.other.dream_world.front_default}
+                  src={pokemonData?.sprites?.other?.dream_world?.front_default}
                   alt="pokemon image"
                   className="pokemon-image"
                 />
               </div>
-              <h1 className="">{pokemonData.name.toUpperCase()}</h1>
+              <h1 className="">{pokemonData?.name?.toUpperCase()}</h1>
               <div className="row pill">
-                {pokemonData.types?.map((type, index) => (
+                {pokemonData?.types?.map((type, index) => (
                   <li className=" type-pills" key={index}>
                     {type.type.name}
                   </li>
                 ))}
-                {pokemonData.abilities?.map((ability, index) => (
+                {pokemonData?.abilities?.map((ability, index) => (
                   <li className=" ability-pills" key={index}>
                     {ability.ability.name}
                   </li>

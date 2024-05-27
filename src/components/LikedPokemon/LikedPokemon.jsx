@@ -6,7 +6,7 @@ export default function LikedPokemon() {
   const [likedPokemon, setLikedPokemon] = useState(null);
 
   // useEffect((id) => {
-    const likedPokemonJSON= JSON.parse(window.localStorage.getItem(`liked-pokemon`));
+    const likedPokemonJSON= JSON.parse(localStorage.getItem(`liked-pokemon`));
     console.log(likedPokemonJSON)
     if (likedPokemon) {
       setLikedPokemon(likedPokemon);
