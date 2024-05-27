@@ -1,0 +1,14 @@
+.background{
+    display: flex;
+    height: min-content;
+    flex-wrap: wrap;
+}
+
+.poke-card{
+    margin: 10px;
+}
+
+.poke-image{
+    width: 120px;
+    height: 120px;
+}

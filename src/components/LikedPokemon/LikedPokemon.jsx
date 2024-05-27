@@ -1,28 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import "./LikedPokemon.css";
 
 export default function LikedPokemon() {
-  
-  const [likedPokemon, setLikedPokemon] = useState(null);
-
-  // useEffect((id) => {
-    const likedPokemonJSON= JSON.parse(localStorage.getItem(`liked-pokemon`));
-    console.log(likedPokemonJSON)
-    if (likedPokemon) {
-      setLikedPokemon(likedPokemon);
-    }
-  // }, []);
-  // useEffect(() => {
-  //   const fetchLikedPokemon = async () => {
-  //     try {
-  //       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/1`);
-  //       setLikedPokemonData(response.data);
-  //     } catch (error) {
-  //       console.error("err fetching ID", error);
-  //     }
-  //   };
-  //   fetchLikedPokemon();
-  // }, []);
+  const likedPokemonJSON = JSON.parse(localStorage.getItem(`liked-pokemon`));
+  // console.log(likedPokemonJSON);
 
   return (
     <div className="background">
@@ -31,17 +12,19 @@ export default function LikedPokemon() {
         alt="Poke API img"
         className="api-png"
       />
-      <div className="poke-card">        
-        {likedPokemon && (
-          <>
+      {likedPokemonJSON ? (
+        likedPokemonJSON.map((val) => (
+          <div className="poke-card" key={val.id}>
             <img
-              src={likedPokemon.sprites.other.dream_world.front_default}
-              alt=""
+              src={val.sprites.other.dream_world.front_default}
+              className="poke-image"
             />
-            <h4>{likedPokemon.name.toUpperCase()}</h4>
-          </>
-        )}
-      </div>
+            <h4 className="text-center">{val.name.toUpperCase()}</h4>
+          </div>
+        ))
+      ) : (
+        <h1>No Liked Pokémon</h1>
+      )}
     </div>
   );
 }
