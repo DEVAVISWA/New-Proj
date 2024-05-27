@@ -6,7 +6,7 @@ export default function LikedPokemon() {
   // console.log(likedPokemonJSON);
 
   return (
-    <div className="background">
+    <div className="background liked-poke-bg">
       <img
         src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
         alt="Poke API img"

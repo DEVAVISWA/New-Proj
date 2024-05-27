@@ -1,14 +1,13 @@
-.background{
-    display: flex;
-    height: min-content;
-    flex-wrap: wrap;
+.liked-poke-bg {
+  height: min-content;
+  /* overflow: scroll; */
 }
 
-.poke-card{
-    margin: 10px;
+.poke-card {
+  margin: 10px;
 }
 
-.poke-image{
-    width: 120px;
-    height: 120px;
+.poke-image {
+  width: 120px;
+  height: 120px;
 }
