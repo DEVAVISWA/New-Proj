@@ -1,60 +1,94 @@
-.pill{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
+.pill {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.type-pills{
-    margin: 7px;
-    border: 1px solid black;
-    border-radius: 7px;
-    background-color: var(--light-type-pill) ;
-    text-transform: uppercase;
-    width: fit-content;
+.type-pills {
+  margin: 7px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: var(--light-type-pill);
+  text-transform: uppercase;
+  width: fit-content;
 }
 
-.ability-pills{
-    margin: 7px;
-    border: 1px solid black;
-    border-radius: 7px;
-    background-color: var(--light-ability-pill);
-    text-transform: uppercase;
-    width: fit-content;
+.type-pills-dark {
+  margin: 7px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: var(--dark-type-pill);
+  text-transform: uppercase;
+  width: fit-content;
 }
 
-.all-poke-card{
-    max-width: fit-content;
+.ability-pills {
+  margin: 7px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: var(--light-ability-pill);
+  text-transform: uppercase;
+  width: fit-content;
 }
 
-.dislike-button{
-    margin: 10px;
-    padding: 10px;
-    width: 110px;
-    border-radius: 12px;
-    background-color: var(--light-dislike-button) ;
+.ability-pills-dark {
+  margin: 7px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: var(--dark-ability-pill);
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.all-poke-card {
+  max-width: fit-content;
+}
+
+.dislike-button {
+  margin: 10px;
+  padding: 10px;
+  width: 110px;
+  border-radius: 12px;
+  background-color: var(--light-dislike-button);
 }
 
 .like-button {
-    margin: 10px;
-    padding: 10px;
-    width: 110px;
-    border-radius: 12px;
-    background-color: var(--light-like-button)  ;
+  margin: 10px;
+  padding: 10px;
+  width: 110px;
+  border-radius: 12px;
+  background-color: var(--light-like-button);
 }
 
-.liked-pokemon{
-    text-align: right;
+.dislike-button-dark {
+  margin: 10px;
+  padding: 10px;
+  width: 110px;
+  border-radius: 12px;
+  background-color: var(--dark-dislike-button);
 }
 
-.pokemon-image{
-    width: 200px;
-    height: 200px;
+.like-button-dark {
+  margin: 10px;
+  padding: 10px;
+  width: 110px;
+  border-radius: 12px;
+  background-color: var(--dark-like-button);
 }
 
-.back-button{
-    text-align: left;
+.liked-pokemon {
+  text-align: right;
 }
 
-.card-top{
-    all: unset;
+.pokemon-image {
+  width: 200px;
+  height: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.card-top {
+  all: unset;
 }

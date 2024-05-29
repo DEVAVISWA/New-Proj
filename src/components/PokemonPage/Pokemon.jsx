@@ -3,10 +3,16 @@ import "./Pokemon.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
-import { faCircleLeft } from "@fortawesome/free-regular-svg-icons";
+import { faCircleLeft, faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export default function Pokemon() {
+
+  const [darkMode, setDarkMode] = useState(true);
+  const changeMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   const navigate = useNavigate();
   const [pokemonData, setPokemonData] = useState("");
   // console.log(pokemonData)
@@ -31,7 +37,6 @@ export default function Pokemon() {
   }, []);
   
   const navigateBack = () => {
-    console.log("button pressed");
     navigate("/");
   };
   
@@ -58,12 +63,23 @@ export default function Pokemon() {
   
   return (
     <div className="background">
+      <button onClick={changeMode} className="light-dark-mode">
+        {darkMode ? (
+          <FontAwesomeIcon
+            icon={faSun}
+            size="2x"
+            style={{ color: "#FFD43B" }}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faMoon} size="2x" />
+        )}
+      </button>
       <img
         src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
         alt="Poke API img"
         className="api-png"
       />
-      <div className="row all-poke-card text-center">
+      <div className={`row text-center all-poke-card${darkMode?'':'-dark'}`}>
         <div className="col back-button">
           <button className="card-top" onClick={navigateBack}>
             <FontAwesomeIcon
@@ -96,24 +112,24 @@ export default function Pokemon() {
               <h1 className="">{pokemonData?.name?.toUpperCase()}</h1>
               <div className="row pill">
                 {pokemonData?.types?.map((type, index) => (
-                  <li className=" type-pills" key={index}>
+                  <li className={`type-pills${darkMode?'':'-dark'}`} key={index}>
                     {type.type.name}
                   </li>
                 ))}
                 {pokemonData?.abilities?.map((ability, index) => (
-                  <li className=" ability-pills" key={index}>
+                  <li className={`ability-pills${darkMode?'':'-dark'}`} key={index}>
                     {ability.ability.name}
                   </li>
                 ))}                
               </div>
               <div className="row">
                 <div className="col">
-                  <button className="dislike-button" onClick={dislikePokemon}>
+                  <button className={`dislike-button${darkMode?'':'-dark'}`} onClick={dislikePokemon}>
                     Dislike
                   </button>
                 </div>
                 <div className="col">
-                  <button className="like-button" onClick={likePokemon}>
+                  <button className={`like-button${darkMode?'':'-dark'}`} onClick={likePokemon}>
                     Like
                   </button>
                 </div>
