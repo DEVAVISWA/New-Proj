@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InstructionPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons/faGratipay";
 import { useNavigate } from "react-router-dom";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 
 export default function InstructionPage() {
+  const [darkMode, setDarkMode] = useState(true);
+  const changeMode = () => {
+    setDarkMode(!darkMode);
+  };
+  // console.log(darkMode);
+
   const navigate = useNavigate();
   let buttonHandler = () => {
     navigate("/pokemon");
   };
   return (
     <div className="background">
+      <button onClick={changeMode} className="light-dark-mode">
+        {darkMode ? (
+          <FontAwesomeIcon
+            icon={faSun}
+            size="2x"
+            style={{ color: "#FFD43B" }}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faMoon} size="2x" />
+        )}
+      </button>
       <img
         src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
         alt="Poke API img"
         className="api-png"
       />
-      <div className="all-poke-card">
+      <div className={`all-poke-card${darkMode?'':'-dark'}`}>
         <div className="container poke-card-content">
           <div className="row padding">
             <div className="col-9"></div>
@@ -40,7 +58,7 @@ export default function InstructionPage() {
           </div>
           <div className="row padding">
             <button
-              className="text-center btn btn-success "
+              className={`text-center btn lg-button${darkMode?'':'-dark'}`}
               onClick={buttonHandler}
             >
               Let's Go!
