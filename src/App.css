@@ -14,3 +14,7 @@ body {
   --light-like-button :  rgb(105, 219, 124);
   --dark-like-button : rgb(4, 102, 20);
 }
+
+*{
+  transition: all 0.2s ease-in-out;
+}
