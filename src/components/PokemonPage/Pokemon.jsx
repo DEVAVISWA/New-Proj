@@ -51,7 +51,7 @@ export default function Pokemon() {
   const likePokemon = () => {
    const likedPokemonArr= [...likedPokemon,pokemonData]
    setLikedPokemon(likedPokemonArr)
-    console.log(pokemonData)
+    // console.log(pokemonData)
     localStorage.setItem('liked-pokemon', JSON.stringify(likedPokemonArr));    
     nextPokemon();
   };
@@ -63,7 +63,7 @@ export default function Pokemon() {
         alt="Poke API img"
         className="api-png"
       />
-      <div className="row poke-card text-center">
+      <div className="row all-poke-card text-center">
         <div className="col back-button">
           <button className="card-top" onClick={navigateBack}>
             <FontAwesomeIcon

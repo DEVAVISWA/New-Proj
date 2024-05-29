@@ -16,7 +16,7 @@ export default function InstructionPage() {
         alt="Poke API img"
         className="api-png"
       />
-      <div className="poke-card">
+      <div className="all-poke-card">
         <div className="container poke-card-content">
           <div className="row padding">
             <div className="col-9"></div>

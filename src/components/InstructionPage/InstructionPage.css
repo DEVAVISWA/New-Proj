@@ -15,7 +15,7 @@ li {
 
 }
 
-.poke-card {
+.all-poke-card {
   background-color: var(--light-bg);
   padding: 13px;
   border-radius: 20px;
@@ -23,7 +23,8 @@ li {
   /* max-width: 300px; */
   /* height: 400px; */
   border: 1px solid black;
-  width: fit-content;
+  width: 350px;
+
 }
 
 .api-png {
